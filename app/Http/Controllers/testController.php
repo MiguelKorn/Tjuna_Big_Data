@@ -10,6 +10,6 @@ class testController extends Controller
     //
     public function test()
     {
-        $user = DB::select('');
+        $user = DB::select("");
     }
 }
