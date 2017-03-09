@@ -8,8 +8,12 @@ use Illuminate\Http\Request;
 class testController extends Controller
 {
     //
-    public function test()
+    public function show()
     {
-        $user = DB::select('');
+        $user = DB::table('users')->get();
+
+        print '<pre>';
+        print_r($user);
+        print '</pre>';
     }
 }
