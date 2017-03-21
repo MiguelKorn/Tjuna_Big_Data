@@ -15,4 +15,11 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+</div>
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+
+>>>>>>> 9302c11018ac706c4b0f2da0401903f4c4d71da8
 @endsection

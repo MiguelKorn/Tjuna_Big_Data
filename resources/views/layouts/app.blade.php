@@ -85,9 +85,16 @@
     @yield('content')
 </div>
 
+<<<<<<< HEAD
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/Chart.bundle.min.js') }}"></script>
 <script src="{{ asset('js/testChart.js') }}"></script>
+=======
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/Chart.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/Chart.js') }}"></script>
+>>>>>>> 9302c11018ac706c4b0f2da0401903f4c4d71da8
 </body>
 </html>
