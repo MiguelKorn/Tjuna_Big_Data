@@ -10,6 +10,7 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
+<<<<<<< HEAD
                         <div class="form-group{{ $errors->has('first-name') ? ' has-error' : '' }}">
                             <label for="first-name" class="col-md-4 control-label">first-Name</label>
 
@@ -19,6 +20,17 @@
                                 @if ($errors->has('first-name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('first-name') }}</strong>
+=======
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Name</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+>>>>>>> 3e2a06647deac6d3e261ae11cfc4c90c7d768e8a
                                     </span>
                                 @endif
                             </div>
