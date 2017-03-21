@@ -35,12 +35,10 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
-        $this->middleware('auth:api');
     }
 
     public function username()
     {
-      return 'username';
+        return 'username';
     }
-
 }

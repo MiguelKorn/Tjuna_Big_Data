@@ -11,8 +11,11 @@
 |
 */
 
-Route::get('/', 'testController@show');
+
+Route::get('home', 'HomeController@index');
+
+Route::get('/test', 'testController@show');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
