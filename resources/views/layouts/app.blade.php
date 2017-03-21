@@ -83,5 +83,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/Chart.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/Chart.js') }}"></script>
 </body>
 </html>
