@@ -13,11 +13,7 @@ class CreateIssuesTable extends Migration
      */
     public function up()
     {
-<<<<<<< HEAD
-        Schema::create('issues', function (Blueprint $table) {
-=======
         Schema::create('issuess', function (Blueprint $table) {
->>>>>>> 9302c11018ac706c4b0f2da0401903f4c4d71da8
             $table->increments('id');
             $table->string('issue_type');
             $table->string('issue_key');
@@ -27,6 +23,7 @@ class CreateIssuesTable extends Migration
             $table->string('resolution');
 
             $table->timestamps();
+            $table->timestamp('closed_at');
 
             $table->integer('custom_field');
 
