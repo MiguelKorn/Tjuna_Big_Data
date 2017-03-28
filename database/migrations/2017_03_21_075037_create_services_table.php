@@ -17,11 +17,12 @@ class CreateServicesTable extends Migration
             $table->increments('id');
             $table->string('users_username');
 
-            $table->integer('worked');
-            $table->integer('billed');
-            $table->integer('planned');
-            $table->integer('required');
-            $table->integer('progress');
+            $table->decimal('worked', 6, 2);
+            $table->decimal('billed', 6, 2);
+            $table->decimal('planned', 6, 2);
+            $table->decimal('required', 6, 2);
+            $table->decimal('progress', 6, 2);
+
             $table->timestamp('date');
 
             $table->foreign('users_username')->references('username')->on('users');

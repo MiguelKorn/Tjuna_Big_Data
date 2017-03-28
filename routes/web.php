@@ -12,6 +12,10 @@
 */
 
 
+Route::get('/profile', ['as' => 'profile', 'uses' => 'ProfileController@index']);
+Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'ProfileController@index']);
+Route::get('/teams', ['as' => 'teams', 'uses' => 'ProfileController@index']);
+
 Route::get('home', 'HomeController@index');
 
 Route::get('/test', 'testController@show');

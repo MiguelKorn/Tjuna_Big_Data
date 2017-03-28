@@ -13,7 +13,7 @@ class CreateIssuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('issuess', function (Blueprint $table) {
+        Schema::create('issues', function (Blueprint $table) {
             $table->increments('id');
             $table->string('issue_type');
             $table->string('issue_key');
@@ -25,7 +25,7 @@ class CreateIssuesTable extends Migration
             $table->timestamps();
             $table->timestamp('closed_at');
 
-            $table->integer('custom_field');
+            $table->integer('custom_field')->nullable();
 
             $table->foreign('users_username')->references('username')->on('users');
         });
