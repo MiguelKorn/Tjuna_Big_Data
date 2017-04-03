@@ -13,8 +13,8 @@
 
 
 Route::get('/profile', ['as' => 'profile', 'uses' => 'ProfileController@index']);
-Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'ProfileController@index']);
-Route::get('/teams', ['as' => 'teams', 'uses' => 'ProfileController@index']);
+Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
+Route::get('/teams', ['as' => 'teams', 'uses' => 'TeamController@index']);
 
 Route::get('home', 'HomeController@index');
 

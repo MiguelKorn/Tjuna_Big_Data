@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.reset')
 
 @section('content')
-    <div id="form-gap"></div>
+    <div class="form-gap"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">

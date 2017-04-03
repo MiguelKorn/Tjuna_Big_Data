@@ -1,37 +1,54 @@
-var ctx = document.getElementById('myChart');
-var chart = new Chart(ctx,{
-    type: 'bar',
-    data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
+function pieChartExternalLegend(canvasId, legendId, data) {
+    var options = {
+        responsive: true,
+        scaleBeginAtZero: true,
+        legend: {
+            display: false
+        },
+        showTooltip: false,
+        tooltips: {
+            enabled: false
+        },
+        pieceLabel: {
+            mode: 'percentage',
+            precision: 1
+        }
+    };
+
+
+    var ctx = $("#"+ canvasId).get(0).getContext("2d");
+    var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: options
+    });
+
+    $("#"+ legendId).html(myPieChart.generateLegend());
+}
+
+function barChart(canvasId, data) {
+    var options = {
         scales: {
+            xAxes: [{
+                display: false
+            }],
             yAxes: [{
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero: true,
+                    max: 1400,
+                    stepSize: 350
                 }
             }]
+        },
+        tooltips: {
+            enabled: false
         }
-    }
-});
+    };
+
+    var ctx = $("#"+ canvasId).get(0).getContext("2d");
+    var myBarChart = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+}
