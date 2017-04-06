@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse sidebar" role="navigation">
+<nav class="navbar sidebar" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -8,32 +8,34 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="{{asset('img/logo-use-spaced.png')}}" height="80"
-                                                  alt="Smiley face"></a>
+            <a class="navbar-brand" href="#">
+                <span><img src="{{asset('img/user.png')}}"/></span>
+                <p>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</p>
+            </a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="{{route('profile')}}">Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
-                </li>
-                <li>
                     <a href="{{route('dashboard')}}">Dashboard<span style="font-size:16px;"
-                                                                    class="pull-right hidden-xs showopacity glyphicon glyphicon-signal"></span></a>
+                                                                    class="pull-right hidden-xs showopacity ">
+                            <i class="fa fa-signal" aria-hidden="true"></i>
+                        </span></a>
                 </li>
                 <li>
-                    <a href="{{route('teams')}}">Teams<span style="font-size:16px;"
-                                                            class="pull-right hidden-xs showopacity glyphicon glyphicon-team"></span></a>
+                    <a href="{{route('team')}}">Team<span style="font-size:16px;"
+                                                           class="pull-right hidden-xs showopacity ">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                        </span></a>
                 </li>
-                {{--<li>--}}
-                {{--<a href="{{route('logout')}}">Log out<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></span></a>--}}
-                {{--</li>--}}
 
                 <li>
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout<span
                                 style="font-size:16px;"
-                                class="pull-right hidden-xs showopacity glyphicon glyphicon-off"></a>
+                                class="pull-right hidden-xs showopacity">
+                            <i class="fa fa-power-off" aria-hidden="true"></i>
+                        </span></a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
                           style="display: none;">
                         {{ csrf_field() }}

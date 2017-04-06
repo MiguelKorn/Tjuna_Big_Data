@@ -5,94 +5,60 @@
     <div class="main">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 border" id="team-hours">
-                    <h1 class="center-text">Team Hours</h1>
-                    <div class="col-lg-3 col-lg-offset-3">
-                        <div class="chart-pie">
-                            <canvas id="canvas-team-hours"></canvas>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <h1 class="center-text">Home</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-lg-offset-2 col-md-3 col-md-offset-2 col-sm-3 col-sm-offset-2 img-bar">
+                    <img src="{{asset('img/user.png')}}" alt="user-img">
+                </div>
+                <div class="col-lg-3 username-bar">
+                    <h3>{{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</h3>
+                </div>
+            </div>
+            <div class="row min-height">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="border">
+                            <h3 class="center-text">Story points team vs personal story points</h3>
+                            <div class="chart-legend">
+                                <canvas id="canvas-storyPoints"></canvas>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        <div id="pie-legend"></div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="border">
+                            <h3 class="center-text">Hours required vs hours worked</h3>
+                            <div class="chart-legend">
+                                <canvas id="canvas-personalReqVsWorked"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-lg-6 border">
-                    <h3 class="center-text">Hours required vs hours worked</h3>
-                    <div class="chart-legend">
-                        <canvas id="canvas-reqVsWorked"></canvas>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-gutter-3 border">
-                    <div class="center">
-                        <a href="" class="home-icon">
-                            <i class="fa fa-area-chart" aria-hidden="true"></i>
-                            <h5>Dashboard</h5>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-gutter-3 border">
-                    <div class="center">
-                        <a href="" class="home-icon">
-                            <i class="fa fa-home" aria-hidden="true"></i>
-                            <h5>Home</h5>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-gutter-6 border">
-                    <a href="" class="large-text">January 2017</a>
-                </div>
-                <div class="col-lg-6 col-gutter-6 border">
-                    <a href="" class="large-text">February 2017</a>
-                </div>
-            </div>
-
-
         </div>
     </div>
 @endsection
 
 @section('script')
     <script>
-        var pieData = {
-            labels: ctrlVars.teamHourNames,
-            datasets: [{
-                data: ctrlVars.teamHourValues,
-                backgroundColor: [
-                    "#FFE135",
-                    "#3B5323",
-                    "#fc6c85",
-                    "#ffec89",
-                    "#021c3d",
-                    "#3B5323",
-                    "#046b00",
-                    "#cef45a",
-                    "#6b1913"
-                ]
-            }]
-        };
-        pieChartExternalLegend("canvas-team-hours", "pie-legend", pieData);
-
-        var barData = {
-            labels: ["1"],
+        var barStoryData = {
+            labels: ["Story points team vs personal story points"],
             datasets: [
                 {
-                    label: "Total required hours",
+                    label: "Personal story points",
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)'
+                        'rgba(109, 65, 178, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(255,99,132,1)'
+                        'rgba(109, 65, 178,1)'
                     ],
                     borderWidth: 1,
-                    data: [ctrlVars.totalReqHours]
+                    data: [ctrlVars.spTotal]
                 },
                 {
-                    label: "Total hours logged",
+                    label: "Team story points",
                     backgroundColor: [
                         'rgba(54, 162, 235, 0.2)'
                     ],
@@ -100,11 +66,41 @@
                         'rgba(54, 162, 235, 1)'
                     ],
                     borderWidth: 1,
-                    data: [ctrlVars.totalWorkHours]
+                    data: [ctrlVars.spTeam]
                 }
             ]
         };
 
-        barChart("canvas-reqVsWorked", barData);
+        barChartNoMax("canvas-storyPoints", barStoryData);
+
+        var barPersonalData = {
+            labels: ["Hours required vs hours worked"],
+            datasets: [
+                {
+                    label: "Hours required",
+                    backgroundColor: [
+                        'rgba(109, 65, 178, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(109, 65, 178,1)'
+                    ],
+                    borderWidth: 1,
+                    data: [ctrlVars.userReq]
+                },
+                {
+                    label: "Hours logged",
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1,
+                    data: [ctrlVars.userWork]
+                }
+            ]
+        };
+
+        barChartNoMax("canvas-personalReqVsWorked", barPersonalData);
     </script>
 @endsection

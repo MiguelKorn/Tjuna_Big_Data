@@ -37,7 +37,7 @@ body, html {
     -webkit-border-radius: 2px;
     border-radius: 2px;
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-   
+
 }
 
 .profile-img-card {
@@ -83,7 +83,7 @@ body, html {
     direction: ltr;
     height: 44px;
     font-size: 16px;
-        border-radius: 0px;
+    border-radius: 0;
 }
 
 .form-signin input[type=email],
@@ -103,13 +103,13 @@ body, html {
 .form-signin .form-control:focus {
     border-color: rgb(104, 145, 162);
     outline: 0;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
 }
 
 .btn.btn-signin {
     background-color: black;
-   
+
     padding: 0px;
     font-weight: 700;
     font-size: 14px;
@@ -136,7 +136,7 @@ body, html {
 
 .forgot-password:hover,
 .forgot-password:active,
-.forgot-password:focus{
+.forgot-password:focus {
     color: #F2EFEF;
 }
 
@@ -144,4 +144,11 @@ body, html {
     color: #fff;
     /* background-color: #337ab7; */
     border-color: #2e6da4;
+}
+
+@media (max-width: 548px) {
+    .profile-img-card {
+        height: 240px;
+        margin-left: -114px;
+    }
 }
